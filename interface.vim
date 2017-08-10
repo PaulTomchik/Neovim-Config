@@ -152,9 +152,14 @@ else
   " color monrovia
   " color mourning
   " color codedark
-  color SerialExperimentsLain
-  let g:airline_theme='deep_space'
-  "let g:airline_theme='codedark'
+  " color SerialExperimentsLain
+  " color mourning
+  " color mourning
+  " color atom-dark
+  color apprentice
+  "let g:airline_theme='deep_space'
+  let g:airline_theme='codedark'
+  
 
 
   highlight Pmenu ctermbg=238 gui=bold
