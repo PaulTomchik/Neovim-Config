@@ -11,7 +11,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 " Plug 'jceb/vim-orgmode'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-" Plug 'marijnh/tern_for_vim'
+Plug 'marijnh/tern_for_vim'
 " Plug 'mileszs/ack.vim'
 " Plug 'othree/jspc.vim'
 " Plug 'ruanyl/vim-fixmyjs'

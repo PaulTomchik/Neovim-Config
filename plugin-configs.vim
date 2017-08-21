@@ -1,11 +1,11 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Gundo
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <F5> :GundoToggle<CR>
-let g:gundo_width=30
-let g:gundo_preview_height=30
-let g:gundo_preview_bottom=1
-let g:gundo_right=1
+" nnoremap <F5> :GundoToggle<CR>
+" let g:gundo_width=30
+" let g:gundo_preview_height=30
+" let g:gundo_preview_bottom=1
+" let g:gundo_right=1
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -18,8 +18,8 @@ let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_path_to_python_interpreter='/usr/bin/python2'
-let g:ycm_path_server_python_interpreter='/usr/bin/python2'
+" let g:ycm_path_to_python_interpreter='/usr/bin/python2'
+" let g:ycm_path_server_python_interpreter='/usr/bin/python2'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NERDTree
@@ -38,35 +38,39 @@ let NERDTreeShowLineNumbers=1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Tern
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:tern_show_argument_hints=1
-let g:tern_map_keys=1
+" let g:tern_show_argument_hints=1
+" let g:tern_map_keys=1
 
-let g:javascript_plugin_jsdoc = 1
+" let g:javascript_plugin_jsdoc = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Ale
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:ale_linters = {
-\   'javascript': ['eslint'],
-\}
+let g:ale_linters = { 'javascript': ['eslint'] }
+let g:ale_javascript_eslint_use_local = 1
+" let g:ale_javascript_eslint_use_global = 1
+let g:ale_javascript_eslint_executable = '/usr/local/bin/eslint'
+let g:airline#extensions#ale#enabled = 1
+
 highlight clear SignColumn
 
 "https://github.com/kentcdodds/prettier-eslint-cli#vim
-autocmd FileType javascript set formatprg=prettier-eslint\ --stdin
+" autocmd FileType javascript set formatprg=prettier-eslint\ --stdin
 
-let g:fixmyjs_engine = 'eslint'
+" let g:fixmyjs_engine = 'eslint'
 " use linting tool installed locally in node_modules folder
-let g:fixmyjs_use_local = 1
-noremap <Leader><Leader>f :Fixmyjs<CR>
+" let g:fixmyjs_use_local = 1
+" let g:fixmyjs_use_local = 1
+" noremap <Leader><Leader>f :Fixmyjs<CR>
 
 "https://github.com/Valloric/YouCompleteMe/issues/318<Paste>
-let g:UltiSnipsExpandTrigger="<c-j>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+" let g:UltiSnipsExpandTrigger="<c-j>"
+" let g:UltiSnipsJumpForwardTrigger="<c-j>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
-endif
+" if executable('ag')
+  " let g:ackprg = 'ag --vimgrep'
+" endif
 
 
 let g:NERDSpaceDelims = 1
@@ -75,22 +79,25 @@ let g:NERDSpaceDelims = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Cscope
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <leader>fa :call cscope#findInteractive(expand('<cword>'))<CR>
-nnoremap <leader>l :call ToggleLocationList()<CR>
+" nnoremap <leader>fa :call cscope#findInteractive(expand('<cword>'))<CR>
+" nnoremap <leader>l :call ToggleLocationList()<CR>
 
-" s: Find this C symbol
-nnoremap  <leader>fs :call cscope#find('s', expand('<cword>'))<CR>
-" g: Find this definition
-nnoremap  <leader>fg :call cscope#find('g', expand('<cword>'))<CR>
-" d: Find functions called by this function
-nnoremap  <leader>fd :call cscope#find('d', expand('<cword>'))<CR>
-" c: Find functions calling this function
-nnoremap  <leader>fc :call cscope#find('c', expand('<cword>'))<CR>
-" t: Find this text string
-nnoremap  <leader>ft :call cscope#find('t', expand('<cword>'))<CR>
-" e: Find this egrep pattern
-nnoremap  <leader>fe :call cscope#find('e', expand('<cword>'))<CR>
-" f: Find this file
-nnoremap  <leader>ff :call cscope#find('f', expand('<cword>'))<CR>
-" i: Find files #including this file
-nnoremap  <leader>fi :call cscope#find('i', expand('<cword>'))<CR>
+" " s: Find this C symbol
+" nnoremap  <leader>fs :call cscope#find('s', expand('<cword>'))<CR>
+" " g: Find this definition
+" nnoremap  <leader>fg :call cscope#find('g', expand('<cword>'))<CR>
+" " d: Find functions called by this function
+" nnoremap  <leader>fd :call cscope#find('d', expand('<cword>'))<CR>
+" " c: Find functions calling this function
+" nnoremap  <leader>fc :call cscope#find('c', expand('<cword>'))<CR>
+" " t: Find this text string
+" nnoremap  <leader>ft :call cscope#find('t', expand('<cword>'))<CR>
+" " e: Find this egrep pattern
+" nnoremap  <leader>fe :call cscope#find('e', expand('<cword>'))<CR>
+" " f: Find this file
+" nnoremap  <leader>ff :call cscope#find('f', expand('<cword>'))<CR>
+" " i: Find files #including this file
+" nnoremap  <leader>fi :call cscope#find('i', expand('<cword>'))<CR>
+
+
+
