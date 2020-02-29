@@ -1,0 +1,10 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/home/paul/projects/scheme/experiments'
+let g:netrw_dirhist_2='/home/paul/AVAIL/npmrds4/src/pages/auth/MeasureVisualizer/utils/PTICalculator'
+let g:netrw_dirhist_3='/home/paul/AVAIL/npmrds4/src/pages/auth/MeasureVisualizer/utils'
+let g:netrw_dirhist_4='/home/paul/AVAIL/npmrds4/src/pages/auth/MeasureVisualizer'
+let g:netrw_dirhist_5='/home/paul/AVAIL/npmrds_data_analysis_platform'
+let g:netrw_dirhist_6='/home/paul/AVAIL/npmrds-osm-conflation'
+let g:netrw_dirhist_7='/home/paul/AVAIL/pm3_calculator_2'
+let g:netrw_dirhist_8='/home/paul/AVAIL/pm3_calculator_2/tasks/keithmiller_email/keith_miller_results'

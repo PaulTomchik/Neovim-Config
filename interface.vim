@@ -258,3 +258,13 @@ function! s:fzf_statusline()
   setlocal statusline=%#fzf1#\ >\ %#fzf2#fz%#fzf3#f
 endfunction
 autocmd! User FzfStatusLine call <SID>fzf_statusline()
+
+" http://deploymentzone.com/2012/12/20/vim-set-syntax-based-on-shebang/
+fun s:DetectEnv()  
+  let tokens = split(getline(1))
+  if len(tokens) >= 2
+    setfiletype tokens[1]
+  endif
+endfun
+
+autocmd BufNewFile,BufRead * call s:DetectEnv()  

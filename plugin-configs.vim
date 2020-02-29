@@ -47,14 +47,19 @@ let NERDTreeShowLineNumbers=1
 " Ale
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:ale_fixers = {}
-let g:ale_fixers['javascript'] = ['prettier']
-let g:ale_fix_on_save = 1
-let g:ale_javascript_prettier_options = '--single-quote --trailing-comma'
+let g:ale_fixers['javascript'] = ['eslint', 'prettier']
+let g:ale_fixers['typescript'] = ['eslint', 'prettier']
 let g:ale_linters = { 'javascript': ['eslint'] }
+"let g:ale_fixers = {'javascript': ['prettier_standard']}
+"let g:ale_linters = {'javascript': ['']}
+let g:ale_fix_on_save = 0
+let g:ale_javascript_prettier_options = '--single-quote'
 let g:ale_javascript_eslint_use_local = 1
 " let g:ale_javascript_eslint_use_global = 1
-let g:ale_javascript_eslint_executable = '/usr/local/bin/eslint'
+" let g:ale_javascript_eslint_executable = '/usr/local/bin/eslint'
 let g:airline#extensions#ale#enabled = 1
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 highlight clear SignColumn
 
@@ -67,14 +72,14 @@ highlight clear SignColumn
 " let g:fixmyjs_use_local = 1
 " noremap <Leader><Leader>f :Fixmyjs<CR>
 
-"https://github.com/Valloric/YouCompleteMe/issues/318<Paste>
+"https://github.com/Valloric/YouCompleteMe/issues/318
 " let g:UltiSnipsExpandTrigger="<c-j>"
 " let g:UltiSnipsJumpForwardTrigger="<c-j>"
 " let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
-" if executable('ag')
-  " let g:ackprg = 'ag --vimgrep'
-" endif
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
 
 
 let g:NERDSpaceDelims = 1
@@ -104,4 +109,18 @@ let g:NERDSpaceDelims = 1
 " nnoremap  <leader>fi :call cscope#find('i', expand('<cword>'))<CR>
 
 
+let g:syntastic_scss_checkers = ['scss_lint']
 
+let g:tslime_always_current_session = 1
+let g:tslime_always_current_window = 1
+vmap <C-c><C-c> <Plug>SendSelectionToTmux
+nmap <C-c><C-c> <Plug>NormalModeSendToTmux
+nmap <C-c>r <Plug>SetTmuxVars
+
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
+" au BufNewFile,BufRead *.clj setfiletype clojure
+" au BufNewFile,BufRead *.clj call PareditInitBuffer()
