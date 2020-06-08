@@ -199,65 +199,7 @@ augroup END
 set wildmode=longest,list,full
 set wildmenu
 
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Python Development
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Annoying pylint error highlighting obscured words. 
-highlight clear SpellBad
-highlight SpellBad term=standout ctermfg=Black term=underline ctermbg=Red
-
-let g:jedi#use_splits_not_buffers = "left"
-
-" Execute python script in current buffer
-map <Leader>z :!python %<CR>
-"au Filetype python setl et ts=2 sw=2
-
-
-
-" This is the default extra key bindings
-let g:fzf_action = {
-  \ 'ctrl-t': 'tab split',
-  \ 'ctrl-x': 'split',
-  \ 'ctrl-v': 'vsplit' }
-
-" Default fzf layout
-" - down / up / left / right
-let g:fzf_layout = { 'down': '~40%' }
-
-" In Neovim, you can set up fzf window using a Vim command
-let g:fzf_layout = { 'window': 'enew' }
-let g:fzf_layout = { 'window': '-tabnew' }
-
-" Customize fzf colors to match your color scheme
-let g:fzf_colors =
-\ { 'fg':      ['fg', 'Normal'],
-  \ 'bg':      ['bg', 'Normal'],
-  \ 'hl':      ['fg', 'Comment'],
-  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-  \ 'hl+':     ['fg', 'Statement'],
-  \ 'info':    ['fg', 'PreProc'],
-  \ 'prompt':  ['fg', 'Conditional'],
-  \ 'pointer': ['fg', 'Exception'],
-  \ 'marker':  ['fg', 'Keyword'],
-  \ 'spinner': ['fg', 'Label'],
-  \ 'header':  ['fg', 'Comment'] }
-
-" Enable per-command history.
-" CTRL-N and CTRL-P will be automatically bound to next-history and
-" previous-history instead of down and up. If you don't like the change,
-" explicitly bind the keys to down and up in your $FZF_DEFAULT_OPTS.
-let g:fzf_history_dir = '~/.local/share/fzf-history'
-
 let g:airline_powerline_fonts = 1
-
-function! s:fzf_statusline()
-  setlocal statusline=%#fzf1#\ >\ %#fzf2#fz%#fzf3#f
-endfunction
-autocmd! User FzfStatusLine call <SID>fzf_statusline()
 
 " http://deploymentzone.com/2012/12/20/vim-set-syntax-based-on-shebang/
 fun s:DetectEnv()  

@@ -7,20 +7,6 @@
 " let g:gundo_preview_bottom=1
 " let g:gundo_right=1
 
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Valloric/YouCompleteMe
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:ycm_complete_in_strings = 1
-let g:ycm_collect_identifiers_from_comments_and_strings = 1
-let g:ycm_collect_identifiers_from_tags_files = 1
-let g:ycm_seed_identifiers_with_syntax = 1
-let g:ycm_confirm_extra_conf = 0
-let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_autoclose_preview_window_after_insertion = 1
-" let g:ycm_path_to_python_interpreter='/usr/bin/python2'
-" let g:ycm_path_server_python_interpreter='/usr/bin/python2'
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NERDTree
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -36,30 +22,40 @@ let NERDTreeShowLineNumbers=1
 "autocmd FileType nerdtree setlocal relativenumber
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Tern
+" coc
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" let g:tern_show_argument_hints=1
-" let g:tern_map_keys=1
+" :CocConfig opens the config file
+" use <tab> for trigger completion and navigate to the next complete item
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
 
-" let g:javascript_plugin_jsdoc = 1
+inoremap <silent><expr> <Tab>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<Tab>" :
+      \ coc#refresh()
+
+" inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Ale
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:ale_fixers = {}
-let g:ale_fixers['javascript'] = ['eslint', 'prettier']
-let g:ale_fixers['typescript'] = ['eslint', 'prettier']
-let g:ale_linters = { 'javascript': ['eslint'] }
-"let g:ale_fixers = {'javascript': ['prettier_standard']}
-"let g:ale_linters = {'javascript': ['']}
-let g:ale_fix_on_save = 0
-let g:ale_javascript_prettier_options = '--single-quote'
-let g:ale_javascript_eslint_use_local = 1
-" let g:ale_javascript_eslint_use_global = 1
-" let g:ale_javascript_eslint_executable = '/usr/local/bin/eslint'
-let g:airline#extensions#ale#enabled = 1
-nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-nmap <silent> <C-j> <Plug>(ale_next_wrap)
+"  let g:ale_fixers = {}
+"  let g:ale_fixers['javascript'] = ['eslint', 'prettier']
+"  let g:ale_fixers['typescript'] = ['eslint', 'prettier']
+"  let g:ale_linters = { 'javascript': ['eslint'] }
+"  "let g:ale_fixers = {'javascript': ['prettier_standard']}
+"  "let g:ale_linters = {'javascript': ['']}
+"  let g:ale_fix_on_save = 0
+"  let g:ale_javascript_prettier_options = '--single-quote'
+"  let g:ale_javascript_eslint_use_local = 1
+"  " let g:ale_javascript_eslint_use_global = 1
+"  " let g:ale_javascript_eslint_executable = '/usr/local/bin/eslint'
+"  let g:airline#extensions#ale#enabled = 1
+"  nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+"  nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 highlight clear SignColumn
 
@@ -83,39 +79,6 @@ endif
 
 
 let g:NERDSpaceDelims = 1
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Cscope
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" nnoremap <leader>fa :call cscope#findInteractive(expand('<cword>'))<CR>
-" nnoremap <leader>l :call ToggleLocationList()<CR>
-
-" " s: Find this C symbol
-" nnoremap  <leader>fs :call cscope#find('s', expand('<cword>'))<CR>
-" " g: Find this definition
-" nnoremap  <leader>fg :call cscope#find('g', expand('<cword>'))<CR>
-" " d: Find functions called by this function
-" nnoremap  <leader>fd :call cscope#find('d', expand('<cword>'))<CR>
-" " c: Find functions calling this function
-" nnoremap  <leader>fc :call cscope#find('c', expand('<cword>'))<CR>
-" " t: Find this text string
-" nnoremap  <leader>ft :call cscope#find('t', expand('<cword>'))<CR>
-" " e: Find this egrep pattern
-" nnoremap  <leader>fe :call cscope#find('e', expand('<cword>'))<CR>
-" " f: Find this file
-" nnoremap  <leader>ff :call cscope#find('f', expand('<cword>'))<CR>
-" " i: Find files #including this file
-" nnoremap  <leader>fi :call cscope#find('i', expand('<cword>'))<CR>
-
-
-let g:syntastic_scss_checkers = ['scss_lint']
-
-let g:tslime_always_current_session = 1
-let g:tslime_always_current_window = 1
-vmap <C-c><C-c> <Plug>SendSelectionToTmux
-nmap <C-c><C-c> <Plug>NormalModeSendToTmux
-nmap <C-c>r <Plug>SetTmuxVars
 
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
