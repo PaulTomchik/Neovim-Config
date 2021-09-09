@@ -87,3 +87,7 @@ au Syntax * RainbowParenthesesLoadBraces
 
 " au BufNewFile,BufRead *.clj setfiletype clojure
 " au BufNewFile,BufRead *.clj call PareditInitBuffer()
+
+" https://github.com/peitalin/vim-jsx-typescript
+" set filetypes as typescriptreact
+autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact

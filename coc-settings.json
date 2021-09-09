@@ -1,10 +1,15 @@
 {
-  "eslint.autoFixOnSave": true,
-  "javascript.suggestionActions.enabled": false,
   "coc.preferences.formatOnSaveFiletypes": [
     "css",
     "markdown",
+    "typescript",
+    "typescriptreact",
     "javascript",
     "json"
-  ]
+  ],
+  "coc.preferences.hoverTarget": "echo",
+  "signature.target": "echo",
+  "eslint.autoFixOnSave": true,
+  "javascript.suggestionActions.enabled": false,
+  "solargraph.formatting": true
 }

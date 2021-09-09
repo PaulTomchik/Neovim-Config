@@ -10,6 +10,9 @@ Plug 'kien/rainbow_parentheses.vim'
 
 Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'wellle/tmux-complete.vim'
+" Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
 
 " Color schemes
  Plug 'romainl/Apprentice'

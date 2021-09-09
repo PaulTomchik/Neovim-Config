@@ -26,6 +26,11 @@ nmap <silent> <C-Right> :wincmd l<CR>
 " <Ctrl-l> redraws the screen and removes any search highlighting.
 nnoremap <silent> <Leader>c :nohl<CR>
 
+" Vim: search and highlight but do not jump
+" https://stackoverflow.com/a/4257175/3970755
+nnoremap # :keepjumps normal! mi#`i<CR>
+nnoremap * :keepjumps normal! mi*`i<CR>
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -210,3 +215,5 @@ fun s:DetectEnv()
 endfun
 
 autocmd BufNewFile,BufRead * call s:DetectEnv()  
+
+nnoremap <silent> T :call CocAction('doHover')<CR>
